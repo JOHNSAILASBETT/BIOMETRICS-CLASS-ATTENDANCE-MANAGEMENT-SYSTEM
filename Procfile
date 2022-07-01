@@ -1,1 +1,1 @@
-web: gunicorn career_guidance_system.wsgi --log-file -
+web: gunicorn class_attendance_system.wsgi --log-file -
