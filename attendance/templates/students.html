@@ -3,7 +3,27 @@
 
 {%block content%}
 {%load static %}
-students page
+
+<ul class="row ">
+    {% for entry in filter.qs %}
+    <li class="col-auto " >
+            <div class ="card bg-white mb-3 sm-3" style="width: 339px;">
+            <div class="card-body">
+                <h2 class="category-name-cap ">{{student.name}}</h2><hr><br>
+                <h3 class="card-text">{{student.reg_no}}</h3><hr><br>
+                <h3 class="card-text">{{student.school}}</h3><hr><br>
+                <h3 class="card-text">{{student.department}}</h3><hr><br>
+                <h3 class="card-text">{{student.year}}</h3><hr><br>
+                <div class="">
+                    <p class="card-text"><h3 class="btn btn-primary">University</h3> <br>{{entry.university}}</p>
+                </div>
+                <hr class="hr-style">
+            </div>
+        </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
 
 {%endblock content%}
 
