@@ -12,5 +12,4 @@ def index(request):
 
 
 def students(request):
-    students=
     return render(request, "students.html")
