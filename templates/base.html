@@ -1,0 +1,30 @@
+
+{% load static %}
+<html>
+<head>
+    <title>MERU</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+<div class="grid-container">
+    <header class="header">
+        <div class="brand">
+            <a  href="{% url 'attendance:index' %}">MUST CLASS ATTENDANCE</a>
+        </div>
+        <div class="header-links">
+            <a href="">Lectures</a>
+            <a href=" {% url 'attendance:students' %}">students &emsp;</a>
+        </div>
+        </header>
+            </header>
+    <main class="main">
+        {% block content %}
+        {% endblock content %}
+    </main>
+    <footer class="footer">
+        <h1>all rights reserved to @MERU</h1><hr>
+    </footer>
+</div>
+</body>
+</html>
