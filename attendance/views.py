@@ -12,4 +12,9 @@ def index(request):
 
 
 def students(request):
-    return render(request, "students.html")
+    student = Entry.objects.all()
+    context = {
+        'student': student,
+
+    }
+    return render(request, "students.html", context)
