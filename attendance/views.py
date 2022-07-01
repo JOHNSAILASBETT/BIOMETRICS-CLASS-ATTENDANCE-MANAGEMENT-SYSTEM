@@ -14,7 +14,7 @@ def index(request):
 def students(request):
     students = Student.objects.all()
     context = {
-        'student': students,
+        'students': students,
 
     }
     return render(request, "students.html", context)
