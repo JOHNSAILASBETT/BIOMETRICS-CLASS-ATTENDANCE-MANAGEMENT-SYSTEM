@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{%block content%}
+
+{% if registered %}
+    <h1>You are now registered you can proceed to <a href="{% url 'users:user_login'%}">Login</a></h1>
+{%else%}
+    <h1> Fill the Following form to register</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token%}
+        {{user_form}}
+        {{profile_form}}
+        <input type="submit" value="register" class="btn-primary btn-block">
+    </form>
+{%endif%}
+{%endblock%}

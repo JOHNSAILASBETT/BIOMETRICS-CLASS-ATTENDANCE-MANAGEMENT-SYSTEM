@@ -39,7 +39,7 @@ body{
     padding: 0;
 }
 .header-links a{
-    color: #ffffff;
+    color: #ffffff;}
 .main{
     grid-area: main;
     margin-top: 40px;

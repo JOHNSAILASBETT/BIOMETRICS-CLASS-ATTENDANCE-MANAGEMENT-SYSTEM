@@ -1,24 +1,37 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
-import datetime as dt
-import math
-from attendance.models import schools, Departments
+from django.contrib.auth.models import User
+import os
+from learningAttendance.models import Year, School, Department, Course
 
 
-class CustomUser(AbstractUser):
-    first_name = models.CharField(max_length= 30)
-    last_name = models.CharField(max_length=30)
-    reg_no = models.CharField(primary_key=True, unique=True, max_length=30)
-    image = models.ImageField(upload_to="static/images/students", null=True, blank=True)
-    school = models.CharField(choices=schools, default='science_&_computing', max_length=30)
-    department = models.ForeignKey(Departments, on_delete=models.CASCADE)
-    year = models.IntegerField(max_length=10)
-    date_of_admission = models.DateField()
+def path_and_rename(instance, filename):
+    upload_to = 'Images/'
+    ext = filename.split('.')[-1]
 
-    def year(self):
-        days = (dt.date.today() - self.date_of_admission).days
-        years = math.floor(days / 365)
-        return years
+    if instance.user.username:
+        filename = 'User_Profile_Pictures/{}.{}'.format(instance.user.username, ext)
+    return os.path.join(upload_to, filename)
 
-    def __str__(self):
-        return self.name[:50]
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    reg_number = models.CharField(max_length=30, unique=True)
+    profile_pic = models.ImageField(upload_to=path_and_rename, verbose_name='profile picture', blank=True)
+    school = models.ForeignKey(School, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    year = models.ForeignKey(Year, on_delete=models.CASCADE)
+
+    lecturer = 'lecturer'
+    student = 'student'
+    dean = 'dean'
+    staff = 'staff'
+
+    user_types = [
+        (lecturer, 'lecturer'),
+        (student, 'student'),
+        (dean, 'dean'),
+        (staff, 'staff'),
+
+    ]
+    user_type = models.CharField(max_length=30, choices=user_types, default=student)

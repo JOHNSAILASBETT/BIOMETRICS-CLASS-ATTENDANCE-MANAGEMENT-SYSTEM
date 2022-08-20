@@ -12,16 +12,11 @@
             <a  href="{% url 'meru_learning:schools_list' %}">MERU</a>
         </div>
         <div class="header-links">
-            <a href="{% url 'meru_learning:schools_list' %}">Home</a>
-            {%if user.is_authenticated%}
-            <a href="{% url 'meru_learning:schools_list'%}">Schools</a>
+            <a href="{% url 'meru_learning:schools_list' %}">Profile</a>
+            <a href="{% url 'meru_learning:schools_list'%}">unit_registration</a>
+            <a href="{% url 'meru_learning:schools_list'%}">Examination</a>
+            <a href="{% url 'meru_learning:schools_list'%}">attendance</a>
             <a href="{% url 'users:user_logout'%}">Logout</a>
-            {%else%}
-            <a href="{% url 'users:user_login'%}">Login</a>
-            <a href="{% url 'users:register'%}">Register</a>
-
-
-            {%endif%}
 
         </div>
         </header>

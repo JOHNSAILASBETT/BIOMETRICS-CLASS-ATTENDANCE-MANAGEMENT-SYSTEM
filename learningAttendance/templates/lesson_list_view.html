@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <h2 class="mb-0 mt-5 font-weight-bold" style="color:#ff5722;">Click on the Lecture you want to view</h2><hr>
+
+{% for lesson in subjects.lessons.all %}
+ <div class ="card  bg-white mb-3 sm-3" style="width: 339px;">
+            <div class="card-body">
+                <h2 class="category-name-cap  ">
+                    <a href="{% url 'curriculum:lesson_detail' slug=lesson.slug subject=subjects.slug standard=lesson.standard.slug %}" >
+                        Chapter-{{lesson.position}}: {{lesson.name}}
+                    </a>
+                </h2>
+            </div>
+ </div>
+{% endfor %}
+ {% if user.userprofileinfo.user_type == 'teacher' or user.is_superuser %}
+           <a href="{% url 'curriculum:lesson_create' standard=subjects.standard.slug slug=subjects.slug %}">
+               <button type="button" class="btn btn-success btn-lg btn-bloc" >
+                   Add new Lesson
+               </button>
+           </a>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+       
+
+<ul class="row">
+    {% for unit in course.units.all %}
+   <li class="col-auto " >
+            <div class ="card  bg-white mb-3 sm-3" style="width: 339px;">
+            <div class="card-body">
+                <h2 class="category-name-cap  ">{{unit.name}}</h2><hr>
+                <h3 class="card-text btn ">{{unit.description|truncatechars:75}}</h3><hr>
+                <button class="btn btn-indigo btn-rounded btn-md">
+                <a href="{% url 'meru_learning:units_list' slug=course.slug department=departments.slug school=schools.slug %}">
+                    <h2>
+                        <span> View Lectures</span>
+                    </h2>
+                </a>
+            </button>
+
+            </div>
+        </div>
+    </li>
+
+    {% endfor %}
+</ul>
+{% endblock %}

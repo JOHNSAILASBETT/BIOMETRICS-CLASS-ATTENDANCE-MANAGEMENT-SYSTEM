@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="row">
+        <div class="col-md-4 mb-3 mr-3">
+                <input type="submit" value="Update" class="btn btn-warning btn-block">
+        </div>
+        <div class="col-md-4 mb-3 mr-3">
+                <a href="{% url 'curriculum:lesson_detail' standard=lessons.standard.slug subject=lessons.subject.slug slug=lessons.slug %}" class="btn btn-danger btn-block">Cancel Update</a>
+        </div>
+</div>
+</form>
+{% endblock %}

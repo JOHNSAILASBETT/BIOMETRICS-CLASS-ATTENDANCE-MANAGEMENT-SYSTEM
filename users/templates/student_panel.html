@@ -1,0 +1,121 @@
+
+{% extends 'students_page.html'%}
+
+{%block content%}
+hi {{user.user}}
+
+
+
+
+
+<section id="best-features" class="text-center">
+    <h2 class="mb-5 mt-5 font-weight-bold" style="color:#ff5722;">Meru school of sciences and technology</h2>
+    <!-- class row for description-->
+    <div class="row d-flex justify-content-center mb-4">
+      <!-- class column -->
+      <div class="col-md-8">
+        <p class="grey-text">School of {{user.email}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 d-flex mb-5 justify-content-center">
+        <div class="card card-std text-center" style="width: 36rem; height: 20rem">
+          <div class="card-body text-center">
+            <h4 class="card-title" style="color:#ff5722;">{{user.school}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 d-flex mb-5 justify-content-center">
+          <div class="card card-std text-center" style="width: 36rem; height: 20rem">
+            <div class="card-body text-center">
+              <h4 class="card-title" style="color:#ff5722;">units{{user.unit}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 d-flex mb-5 justify-content-center">
+            <div class="card card-std text-center" style="width: 36rem; height: 20rem">
+              <div class="card-body text-center">
+                <h4 class="card-title" style="color:#ff5722;">attendance{{user.unit}}</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 d-flex mb-5 justify-content-center">
+              <div class="card card-std text-center" style="width: 36rem; height: 20rem">
+                <div class="card-body text-center">
+                  <h4 class="card-title" style="color:#ff5722;">exam you qualify to do{{user.unit}}</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 d-flex mb-5 justify-content-center">
+                <div class="card card-std text-center" style="width: 36rem; height: 20rem">
+                  <div class="card-body text-center">
+                    <h4 class="card-title" style="color:#ff5722;">learning materials{{user.unit}}</h4>
+                  </div>
+                </div>
+              </div>
+</div>
+</section>
+general info
+school
+depart
+courses
+
+
+
+<hr>
+current units
+
+1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+
+<hr>
+
+attendance infor
+
+<hr>
+
+
+exams you qualify to do
+
+<hr>
+
+
+other infor 
+
+
+{%endblock%}
+
+<section id="best-features" class="text-center">
+    <h2 class="mb-5 mt-5 font-weight-bold" style="color:#ff5722;">Meru school of sciences and technology</h2>
+    <!-- class row for description-->
+    <div class="row d-flex justify-content-center mb-4">
+      <!-- class column -->
+      <div class="col-md-8">
+        <p class="grey-text">School of {{student.school}}</p>
+      </div>
+    </div>
+    </section>
+    <!-- class row2 for cards -->
+    <div class="row">
+            <div class="col-md-4 d-flex mb-5 justify-content-center">
+              <div class="card card-std text-center" style="width: 36rem; height: 20rem">
+                <div class="card-body text-center">
+                  <h4 class="card-title" style="color:#ff5722;">{{school.name}}</h4>
+                  <p class="card-text">{{school.description|truncatechars:75}}</p>
+                </div>
+              </div>
+            </div>
+    </div>
+</section>
